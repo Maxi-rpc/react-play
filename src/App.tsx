@@ -1,10 +1,10 @@
 import './index.css';
-import { LayoutMain } from './components';
+import HomePage from './pages/home';
 
 const App = () => {
   return (
     <>
-      <LayoutMain />
+      <HomePage />
     </>
   );
 };
