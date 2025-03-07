@@ -1,10 +1,12 @@
 import './index.css';
-import HomePage from './pages/home';
+
+// routing
+import Routes from './routes';
 
 const App = () => {
   return (
     <>
-      <HomePage />
+      <Routes />
     </>
   );
 };

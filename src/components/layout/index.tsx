@@ -1,15 +1,13 @@
+import { Outlet } from 'react-router-dom';
+
 import Header from './header';
 
-interface LayoutMainProps {
-  children?: React.ReactNode;
-}
-
-const LayoutMain = ({ children }: LayoutMainProps) => {
+const LayoutMain = () => {
   return (
     <>
       <Header />
       <div className="my-3"></div>
-      {children}
+      <Outlet />
     </>
   );
 };
