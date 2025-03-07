@@ -1,6 +1,4 @@
-import { Link } from 'react-router';
-
-import { Card, CardContent, CardFooter, CardTitle, Button } from '../../components';
+import { Card, CardContent, CardFooter, CardTitle } from '../../components';
 import { Data } from '../../services';
 
 const HomePage = () => {
@@ -10,22 +8,22 @@ const HomePage = () => {
 
   return (
     <>
-      <h1>Home Page</h1>
-
-      <div className="grid grid-cols-6 grid-rows-5 gap-4 px-4 py-4">
+      <div className="grid grid-cols-12 grid-rows-5 gap-4 px-4 py-4">
         {Data.map((item, index) => (
-          <div key={index} className="col-span-2 row-span-2">
+          <div key={index} className="col-span-2 row-span-1">
             <Card>
               <CardContent>
                 <CardTitle title={item.name} />
               </CardContent>
               <CardFooter>
-                <Link
-                  to="/play"
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-[#7e22ce] text-[#ffffff] w-full font-bold text-base  p-3 rounded-lg hover:bg-purple-800 active:scale-95 transition-transform transform text-center"
                 >
                   Go Play
-                </Link>
+                </a>
               </CardFooter>
             </Card>
           </div>
