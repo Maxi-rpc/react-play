@@ -2,13 +2,12 @@ import { Card, CardContent } from '../../components';
 import { Data } from '../../services';
 
 const HomePage = () => {
-  Data.map((item) => {
-    console.log(item);
-  });
-
   return (
     <>
       <div className="grid grid-cols-6 xl:grid-cols-12 grid-rows-5 gap-4 px-4 py-4">
+        <div className="col-span-6 xl:col-span-12 row-span-1">
+          <h1>Filtro</h1>
+        </div>
         {Data.map((item, index) => (
           <div key={index} className="col-span-2 xl:col-span-2 row-span-1">
             <Card>

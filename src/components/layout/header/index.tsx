@@ -1,12 +1,17 @@
 import { useState } from 'react';
+import { NavLink } from 'react-router';
 import { Dialog, DialogPanel, PopoverGroup } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const menuList = [
-  { name: 'Eventos', href: '#', icon: '' },
-  { name: 'Contacto', href: '#', icon: '' },
-  { name: 'GitHub', href: '#', icon: '' },
+  { name: 'Play', href: '/', target: 'self', icon: '', current: false },
+  { name: 'Contacto', href: '/contacto', target: 'self', icon: '', current: false },
+  { name: 'GitHub', href: '/github', target: 'ext', icon: '', current: false },
 ];
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,14 +20,14 @@ const Header = () => {
     <header className="bg-white dark:bg-gray-800">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
+          <NavLink to="/">
             <span className="sr-only">Your Company</span>
             <img
               alt=""
               src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
               className="h-8 w-auto"
             />
-          </a>
+          </NavLink>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -36,9 +41,17 @@ const Header = () => {
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
           {menuList.map((item, index) => (
-            <a key={index} href={item.href} className="text-sm/6 font-semibold text-gray-900 dark:text-gray-400">
+            <NavLink
+              key={index}
+              to={item.href}
+              className={({ isActive }) =>
+                isActive
+                  ? 'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium'
+                  : 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'
+              }
+            >
               {item.name}
-            </a>
+            </NavLink>
           ))}
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -72,13 +85,17 @@ const Header = () => {
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 {menuList.map((item, index) => (
-                  <a
+                  <NavLink
                     key={index}
-                    href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-gray-400"
+                    to={item.href}
+                    className={({ isActive }) =>
+                      isActive
+                        ? '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold bg-gray-900 text-white'
+                        : '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-300 hover:bg-gray-700 hover:text-white'
+                    }
                   >
                     {item.name}
-                  </a>
+                  </NavLink>
                 ))}
               </div>
               <div className="py-6">
