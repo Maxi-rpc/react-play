@@ -6,7 +6,7 @@ import { Loadable } from '../components';
 
 // page routing
 const HomePage = Loadable(lazy(() => import('../views/home')));
-
+const ErrorPage = Loadable(lazy(() => import('../views/error')));
 // ===========================|| MAIN ROUTING ||=========================== //
 
 const MainRoutes = {
@@ -16,7 +16,11 @@ const MainRoutes = {
     {
       path: '/',
       element: <HomePage />,
-    }
+    },
+    {
+      path: '*',
+      element: <ErrorPage />,
+    },
   ],
 };
 

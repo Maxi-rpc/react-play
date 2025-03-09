@@ -1,6 +1,11 @@
-const BaseUrl = 'https://streamdz4.lat/player/embed.php?channel=';
+export interface DataProps {
+  name: string;
+  url: string;
+}
 
-export const Data = [
+export const BaseUrl = 'https://streamdz4.lat/player/embed.php?channel=';
+
+export const Data: DataProps[] = [
   {
     name: 'espn',
     url: `${BaseUrl}espn`,

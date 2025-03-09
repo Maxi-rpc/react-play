@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Card, CardContent } from '../../components';
-import { Data } from '../../services';
+import { Data, DataProps } from '../../services';
 
 const HomePage = () => {
   const [filter, setFilter] = useState('');
   const [searchParam] = useState(['name']);
 
-  const handelfilter = (items) => {
+  const handelfilter = (items: DataProps[]) => {
     return items.filter((item) => {
       return searchParam.some((newItem) => {
         return item[newItem].toString().toLowerCase().indexOf(filter.toLowerCase()) > -1;

@@ -6,7 +6,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 const menuList = [
   { name: 'Play', href: '/', target: 'self', icon: '', current: false },
   { name: 'Contacto', href: '/contacto', target: 'self', icon: '', current: false },
-  { name: 'GitHub', href: '/github', target: 'ext', icon: '', current: false },
+  { name: 'GitHub', href: 'https://github.com/Maxi-rpc/react-play', target: 'ext', icon: '', current: false },
 ];
 
 function classNames(...classes) {
