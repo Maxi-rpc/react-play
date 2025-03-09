@@ -9,10 +9,6 @@ const menuList = [
   { name: 'GitHub', href: 'https://github.com/Maxi-rpc/react-play', target: 'ext', icon: '', current: false },
 ];
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
-
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -55,7 +51,7 @@ const Header = () => {
           ))}
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm/6 font-semibold text-gray-900 dark:text-gray-400">
+          <a href="#" className="text-sm/6 font-semibold text-gray-900 dark:text-gray-400 ml-3">
             Log in <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
